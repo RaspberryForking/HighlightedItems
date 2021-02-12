@@ -102,18 +102,19 @@ namespace HighlightedItems
                     Mouse.moveMouse(prevMousePos);
                 }
 
+
                 if (isButtonPressed(pickButtonRectAll))
                 {
                     var prevMousePos = Mouse.GetCursorPosition();
+                    var count = 0;
                     foreach (var item in allStashItems)
                     {
-                        var oldCount = stashPanel.VisibleStash.ItemCount;
+                        if(count > 19)
+                        {
+                            break;
+                        }
                         moveItem(item.GetClientRect().Center);
-                        var newCount = stashPanel.VisibleStash.ItemCount;
-                        //if (oldCount == newCount)
-                        //{
-                        //    break;
-                        //}
+                        count++;
 
                     }
                     Mouse.moveMouse(prevMousePos);
